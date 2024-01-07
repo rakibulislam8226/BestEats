@@ -33,10 +33,13 @@ export const Navbar = () => {
             </button>
 
             {/* Overlay  */}
-            {show ? <div className='bg-black bg-opacity-50 fixed top-0 left-0 w-screen h-screen'></div> : ""}
+            <div
+                className={`fixed top-0 left-0 w-screen h-screen bg-black transition-opacity duration-300 ${show ? 'opacity-50' : 'opacity-0 pointer-events-none'}`}
+                onClick={() => setShow(!show)}
+            ></div>
 
             {/* drawer menu  */}
-            <div className={show ? 'bg-gray-300 fixed w-[200px] md:w-[300px] duration-300 top-0 left-0 h-screen' : "fixed left-[-100%]"}>
+            <div className={`fixed top-0 left-0 w-[200px] md:w-[300px] h-screen bg-gray-300 transition-all duration-300 ${show ? 'translate-x-0' : '-translate-x-full'}`}>
                 <AiOutlineClose size={25} className='absolute top-2 right-2 cursor-pointer' onClick={() => setShow(!show)} />
                 <p className='absolute top-2 text-2xl'>Best <span className='font-bold'>Eats</span></p>
 
