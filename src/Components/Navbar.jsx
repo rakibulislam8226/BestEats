@@ -48,12 +48,12 @@ export const Navbar = () => {
             </div>
 
             {/* search  */}
-            <div className='bg-gray-200 flex items-center rounded-full ml-2 px-4'>
+            <div className='bg-gray-200 hidden md:flex items-center rounded-full ml-2 px-4'>
                 <AiOutlineSearch size={20} />
                 <input className='outline-none bg-transparent p-2 w-full' type="text" placeholder='Search' />
             </div>
 
-            <button className='bg-black text-white hidden md:flex p-2 rounded-full gap-4'>
+            <button className='bg-black text-white flex p-2 rounded-full gap-2'>
                 <BsFillCartFill size={25} /> Cart
             </button>
 
