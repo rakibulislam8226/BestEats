@@ -15,19 +15,21 @@ export const Navbar = () => {
                 <AiOutlineMenu size={25} onClick={() => setShow(!show)} />
 
                 <div className='text-xl sm:text-2xl'>
-                    <p>Best <span className='font-bold'>Eats</span></p>
+                    <p className='flex'> Best <span className='font-bold'>Eats</span></p>
                 </div>
-                <div className='flex gap-2 bg-gray-200 rounded-full p-1 items-center'>
+                <div className='hidden md:flex gap-2 bg-gray-200 rounded-full p-1 items-center'>
                     <p className='bg-black text-white rounded-full p-1'>Delivery</p>
                     <p>Pickup</p>
                 </div>
 
             </div>
 
-            <div className='bg-gray-200 hidden md:flex items-center rounded-full px-4'>
+            {/* search  */}
+            <div className='bg-gray-200 flex items-center rounded-full ml-2 px-4'>
                 <AiOutlineSearch size={20} />
                 <input className='outline-none bg-transparent p-2 w-full' type="text" placeholder='Search' />
             </div>
+
             <button className='bg-black text-white hidden md:flex p-2 rounded-full gap-4'>
                 <BsFillCartFill size={25} /> Cart
             </button>
@@ -39,7 +41,7 @@ export const Navbar = () => {
             ></div>
 
             {/* drawer menu  */}
-            <div className={`fixed top-0 left-0 w-[200px] md:w-[300px] h-screen bg-gray-300 transition-all duration-300 ${show ? 'translate-x-0' : '-translate-x-full'}`}>
+            <div className={`fixed top-0 left-0 w-[200px] md:w-[300px] h-screen bg-gray-300 transition-all duration-300 z-50 ${show ? 'translate-x-0' : '-translate-x-full'}`}>
                 <AiOutlineClose size={25} className='absolute top-2 right-2 cursor-pointer' onClick={() => setShow(!show)} />
                 <p className='absolute top-2 text-2xl'>Best <span className='font-bold'>Eats</span></p>
 
