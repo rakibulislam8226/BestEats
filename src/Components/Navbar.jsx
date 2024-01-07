@@ -4,13 +4,36 @@ import { TbTruckDelivery } from 'react-icons/tb';
 import { MdFavorite, MdHelp } from 'react-icons/md';
 import { FaWallet, FaUserFriends } from 'react-icons/fa';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const Navbar = () => {
     const [show, setShow] = useState(false);
+    const [lastScrollY, setLastScrollY] = useState(0);
+    const [navbarVisible, setNavbarVisible] = useState(true);
+
+    const controlNavbar = () => {
+        if (typeof window !== 'undefined') {
+            if (window.scrollY > lastScrollY) {
+                setNavbarVisible(false);
+            } else {
+                setNavbarVisible(true);
+            }
+            setLastScrollY(window.scrollY);
+        }
+    };
+
+    useEffect(() => {
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', controlNavbar);
+
+            return () => {
+                window.removeEventListener('scroll', controlNavbar);
+            };
+        }
+    }, [lastScrollY]);
 
     return (
-        <div className='flex items-center p-4 justify-between bg-gray-100'>
+        <div className={`fixed top-0 w-full z-10 flex items-center p-4 justify-between bg-gray-100 transition-transform duration-300 ${navbarVisible ? 'translate-y-0' : '-translate-y-full'}`}>
             <div className='flex gap-4 items-center'>
                 <AiOutlineMenu size={25} onClick={() => setShow(!show)} />
 
