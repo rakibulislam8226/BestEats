@@ -1,4 +1,5 @@
 import './App.css'
+import { HeadLines } from './Components/Headlines/HeadLines'
 import { Hero } from './Components/Hero'
 import { Navbar } from './Components/Navbar'
 
@@ -9,6 +10,7 @@ function App() {
     <>
       <Navbar />
       <Hero />
+      <HeadLines />
     </>
   )
 }
