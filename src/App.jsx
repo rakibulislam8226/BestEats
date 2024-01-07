@@ -1,4 +1,5 @@
 import './App.css'
+import Category from './Components/Category'
 import Food from './Components/Foods/Foods'
 import { HeadLines } from './Components/Headlines/HeadLines'
 import { Hero } from './Components/Hero'
@@ -13,6 +14,7 @@ function App() {
       <Hero />
       <HeadLines />
       <Food />
+      <Category />
     </>
   )
 }
